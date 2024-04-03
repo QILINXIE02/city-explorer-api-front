@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import CitySearch from './components/CitySearch';
-import Weather from './components/Weather';
+import CitySearch from './CitySearch';
+import Weather from './Weather';
 
 function App() {
     const [weatherData, setWeatherData] = useState(null);
