@@ -22,7 +22,3 @@ function Weather({ data }) {
             </div>
         </div>
     );
-}
-
-
-export default Weather;
