@@ -1,5 +1,8 @@
-.error-display {
+.errorDisplay {
   color: red;
-  margin: 20px;
-  text-align: center;
+  padding: 10px;
+  margin: 10px 0;
+  background-color: #ffcaca;
+  border: 1px solid red;
+  border-radius: 4px;
 }

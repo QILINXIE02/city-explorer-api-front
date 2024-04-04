@@ -1,9 +1,9 @@
 import React from 'react';
-import './css/ErrorDisplay.module.css'; 
+import styles from './ErrorDisplay.module.css'; 
 
 function ErrorDisplay({ message }) {
   return (
-    <div className="error-display">
+    <div className={styles.errorDisplay}> 
       {message}
     </div>
   );
