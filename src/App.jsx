@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import Weather from './Weather';
 import CitySearch from './CitySearch';
-import CombinedComponents from './CombinedComponents';
+import './index.css';
 
 function App() {
     const [weatherData, setWeatherData] = useState(null);
@@ -18,21 +18,20 @@ function App() {
         }
 
         try {
-            const response = await axios.get(`http://localhost:3000/weather`, {
-                params: { searchQuery: city }
-            });
+            const url = `https://us1.locationiq.com/v1/search?key=${accessToken}&q=${city}&format=json`; // Use accessToken directly
+            const response = await axios.get(url);
 
             if (response.data && response.data.length > 0) {
                 const locationData = response.data[0];
                 setLocation(locationData);
-                setWeatherData(response.data); 
+                setWeatherData(null);
                 setError(null);
             } else {
                 setError("No results found. Please try a different location.");
             }
         } catch (error) {
-            console.error("Error fetching location/weather data", error);
-            setError("Failed to fetch location/weather data. Please try again.");
+            console.error("Error fetching location data", error);
+            setError("Failed to fetch location data. Please try again.");
         }
     }
 
@@ -49,7 +48,6 @@ function App() {
         <div>
             <CitySearch onWeatherDataFetched={setWeatherData} />
             <Weather data={weatherData} />
-            <CombinedComponents location={location} weatherData={weatherData} accessToken={accessToken} />
         </div>
     );
 }

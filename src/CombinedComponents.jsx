@@ -3,11 +3,10 @@ import React from 'react';
 const Title = ({ location }) => {
   return (
     <>
-      {location.display_name ?
+      {location.display_name &&
         <section>
           <h4>Location Information For: {location.display_name}</h4>
         </section>
-        : null
       }
     </>
   );
@@ -20,7 +19,7 @@ function Weather({ data }) {
   console.log(data);
   return (
     <div>
-      <h2>Weather Forecast for {data.city}</h2>
+      <h2>Weather Forecast for {data[0].city}</h2>
       <div className="d-flex flex-wrap justify-content-around">
         {data.map((forecast, index) => (
           <div key={index} className="card m-2" style={{ width: '18rem' }}>
@@ -37,15 +36,17 @@ function Weather({ data }) {
 
 const Map = ({ location, accessToken }) => {
   return (
-    <When condition={location.lat && location.lon}>
-      <section className="text-center">
-        <img
-          className="img-fluid rounded"
-          src={`https://maps.locationiq.com/v3/staticmap?key=${accessToken}&center=${location.lat},${location.lon}&size=600x400&zoom=13`}
-          alt="Map"
-        />
-      </section>
-    </When>
+    <>
+      {location.lat && location.lon &&
+        <section className="text-center">
+          <img
+            className="img-fluid rounded"
+            src={`https://maps.locationiq.com/v3/staticmap?key=${accessToken}&center=${location.lat},${location.lon}&size=600x400&zoom=13`}
+            alt="Map"
+          />
+        </section>
+      }
+    </>
   );
 }
 
@@ -57,13 +58,13 @@ const ErrorMessage = ({ message }) => {
   );
 }
 
-const CombinedComponents = ({ location, weatherData, accessToken }) => {
+const CombinedComponents = ({ location, weatherData, accessToken, error }) => {
   return (
     <div>
       <Title location={location} />
       <Weather data={weatherData} />
-      <Map location={location} accessToken={accessToken} />
-      <ErrorMessage message={error} />
+      <Map location={location} accessToken={accessToken} /> {/* Pass accessToken to Map component */}
+      {error && <ErrorMessage message={error} />}
     </div>
   );
 }

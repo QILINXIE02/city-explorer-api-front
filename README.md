@@ -12,23 +12,22 @@ Currently, two official plugins are available:
 4/3 Weather/Movie feature lab 8
 **Author**: Qilin Xie
 **Version**: 1.0.0 (increment the patch/fix version number if you make more commits past your first submission)
-
+r
 ## Overview
-<!-- Provide a high level overview of what this application is and why you are building it, beyond the fact that it's an assignment for this class. (i.e. What's your problem domain?) -->
+building a weather application that allows users to search for weather forecasts by city name. The application consists of a frontend written in React, where users can input a city name, and a backend server that fetches weather data from a JSON file or an external API.
 
 ## Getting Started
-<!-- What are the steps that a user must take in order to build this app on their own machine and get it running? -->
+Begin by constructing a backend system to fetch required data from relevant APIs, and create a frontend interface for user interaction.
+
 
 ## Architecture
-<!-- Provide a detailed description of the application design. What technologies (languages, libraries, etc) you're using, and any other relevant design information. -->
+Built with Axios, Cors, Express.
 
 ## Change Log
-<!-- Use this area to document the iterative changes made to your application as each feature is successfully implemented. Use time stamps. Here's an example:
 
-01-01-2001 4:59pm - Application now has a fully-functional express server, with a GET route for the location resource. -->
 
 ## Credit and Collaborations
-<!-- Give credit (and a link) to other people or resources that helped you build this application. -->
+chatGPT and copoilt
 
 Estimate of time needed to complete: 
 
