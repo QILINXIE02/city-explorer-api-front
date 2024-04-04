@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import Weather from './Weather';
 import CitySearch from './CitySearch';
+import Map from './Map'; 
 import './index.css';
 
 function App() {
@@ -48,6 +49,7 @@ function App() {
         <div>
             <CitySearch onWeatherDataFetched={setWeatherData} />
             <Weather data={weatherData} />
+            <Map lat={location.lat} lon={location.lon} /> {/* Pass lat and lon data to Map component */}
         </div>
     );
 }
