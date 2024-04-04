@@ -9,6 +9,63 @@ Currently, two official plugins are available:
 # city-explorer-api
 
 
+
+4/3 Weather/Movie feature lab 8
+**Author**: Qilin Xie
+**Version**: 1.4.0 (increment the patch/fix version number if you make more commits past your first submission)
+r
+## Overview
+building a weather application that allows users to search for weather forecasts by city name. The application consists of a frontend written in React, where users can input a city name, and a backend server that fetches weather data from a JSON file or an external API.
+
+## Getting Started
+Begin by constructing a backend system to fetch required data from relevant APIs, and create a frontend interface for user interaction.
+
+
+## Architecture
+Built with Axios, Cors, Express.
+
+## Change Log
+front end: 
+4/4 4:30pm updates readme.md
+4/4 4:15pm refactored front end codes and adds modules/location.js, 
+4/4 2:30pm updates maps and previous features from lab7
+
+back end: 
+4/4 4:30pm updates readme.md
+4/4modifies app.jsx to fetch movies.js and reafacted back end codes
+4/4 2:30pm fixes error from yesterday lab8
+
+
+## Credit and Collaborations
+chatGPT
+
+
+1.Refactor back end
+
+Estimate of time needed to complete: 1hr 
+
+Start time: 1pm
+
+Finish time: 2pm
+
+Actual time needed to complete: 1 hr
+
+
+2. Name of feature:  refactor front end
+
+Estimate of time needed to complete: 30 mins
+
+Start time:  2:30pm
+
+Finish time: 3:05 pm 
+
+Actual time needed to complete: 35 mins
+
+
+accessibility scores: ![alt text](image.png)
+
+
+
 4/3 Weather/Movie feature lab 8
 **Author**: Qilin Xie
 **Version**: 1.3.0 (increment the patch/fix version number if you make more commits past your first submission)
