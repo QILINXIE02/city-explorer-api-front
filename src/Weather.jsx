@@ -9,7 +9,7 @@ function Weather({ data }) {
     return (
         <div>
             <h2>Weather Forecast for {data.city}</h2>
-            {/* <p>Latitude: {data.lat}, Longitude: {data.lon}</p> */}
+            <p>Latitude: {data.lat}, Longitude: {data.lon}</p>
             <div className="d-flex flex-wrap justify-content-around">
                 {data.map((forecast, index) => (
                     <div key={index} className="card m-2" style={{ width: '18rem' }}>

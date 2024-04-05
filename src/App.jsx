@@ -2,55 +2,54 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import Weather from './Weather';
 import CitySearch from './CitySearch';
-import Map from './Map'; 
+import Map from './Map';
 import './index.css';
 
+const API_URL = import.meta.env.VITE_API_URL;
+
 function App() {
-    const [weatherData, setWeatherData] = useState(null);
-    const [city, setCity] = useState('');
     const [location, setLocation] = useState({});
+    const [weather, setWeather] = useState([]);
     const [error, setError] = useState(null);
-    const accessToken = import.meta.env.VITE_LOCATION_ACCESS_TOKEN;
 
-    async function getLocation() {
-        if (!city) {
-            setError('Please enter a city name.');
-            return;
-        }
-
+    async function handleSearch(city) {
         try {
-            const url = `https://us1.locationiq.com/v1/search?key=${accessToken}&q=${city}&format=json`; // Use accessToken directly
-            const response = await axios.get(url);
+            const locationURL = `${API_URL}/location?city=${city}`;
+            const response = await axios.get(locationURL);
+            const data = response.data;
+            setLocation(data);
 
-            if (response.data && response.data.length > 0) {
-                const locationData = response.data[0];
-                setLocation(locationData);
-                setWeatherData(null);
-                setError(null);
-            } else {
-                setError("No results found. Please try a different location.");
-            }
+            getWeather(data);
         } catch (error) {
-            console.error("Error fetching location data", error);
-            setError("Failed to fetch location data. Please try again.");
+            console.error('Error fetching location data', error);
+            setError('Failed to fetch location data. Please try again.');
         }
     }
 
-    function handleNewCity(e) {
-        setCity(e.target.value);
-    }
-
-    function handleSubmit(e) {
-        e.preventDefault();
-        getLocation();
+    async function getWeather(location) {
+        try {
+            const weatherURL = `${API_URL}/weather?lat=${location.latitude}&lon=${location.longitude}`;
+            const response = await axios.get(weatherURL);
+            const data = response.data;
+            setWeather(data);
+            setError(null); // Reset error if fetching weather succeeds
+        } catch (error) {
+            console.error('Error fetching weather data', error);
+            setError('Failed to fetch weather data. Please try again.');
+        }
     }
 
     return (
-        <div>
-            <CitySearch onWeatherDataFetched={setWeatherData} />
-            <Weather data={weatherData} />
-            <Map lat={location.lat} lon={location.lon} /> {/* Pass lat and lon data to Map component */}
-        </div>
+        <>
+            <CitySearch onSearch={handleSearch} />
+            {error && <p style={{ color: 'red' }}>{error}</p>}
+            {Object.keys(location).length > 0 && (
+                <>
+                    <Weather weather={weather} />
+                    <Map location={location} />
+                </>
+            )}
+        </>
     );
 }
 
