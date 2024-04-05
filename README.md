@@ -8,9 +8,47 @@ Currently, two official plugins are available:
 - [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
 # city-explorer-api
 
+4/5 Cache feature lab 10# Project Name: Weather Application
+
+**Author**: Qilin Xie
+**Version**: 1.5.0 
+
+## Overview
+This project involves building a weather application that allows users to search for weather forecasts by city name. The application consists of a frontend written in React, where users can input a city name, and a backend server that fetches weather data from external APIs.
+
+## Getting Started
+I set up both the frontend and backend components. Begin by constructing the backend system to fetch required data from relevant APIs. Then, create a frontend interface for user interaction where users can input a city name to view the weather forecast.
+
+## Architecture
+The application is built with Axios, Cors, and Express.
+
+## Change Log
+### Frontend:
+- [4/5 3pm] Implemented caching feature to improve performance.
+
+### Backend:
+- [4/5 3pm] Integrated caching mechanism for efficient data retrieval.
+
+## Credit and Collaborations
+Thanks to ChatGPT for assistance.
+
+## Time Estimates
+1. **Cache Feature Implementation**
+   - **Estimate**: 1 hour
+   - **Start Time**: 1:00 PM
+   - **Finish Time**: 2:00 PM
+   - **Actual Time**: 1 hour
+
+2. **Integrating Yelp API**
+   - **Estimate**: 30 minutes
+   - **Start Time**: 2:30 PM
+   - **Finish Time**: 3:05 PM
+   - **Actual Time**: 35 minutes
+
+accessibility scores: ![alt text](image.png)
 
 
-4/3 Weather/Movie feature lab 8
+4/4 Weather/Movie feature lab 9
 **Author**: Qilin Xie
 **Version**: 1.4.0 (increment the patch/fix version number if you make more commits past your first submission)
 r
